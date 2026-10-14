@@ -1,5 +1,11 @@
 # AY Voice
 
+> [!NOTE]
+> **Confidentiality & Client Privacy Notice:**  
+> This platform was engineered for an enterprise client under strict **Non-Disclosure Agreement (NDA)** and commercial privacy terms. To safeguard proprietary business logic, client data, and production infrastructure, the complete source code is not hosted publicly. This repository serves as an architectural case study, technical showcase, and system design breakdown.
+>
+> If you are a **Hiring Manager, Technical Recruiter, or Evaluator** and would like to review the original production codebase or walk through a live technical demo, please email directly at **[hello@mehedi-hasan.me](mailto:hello@mehedi-hasan.me)**. Private, authorized read access can be granted upon verification.
+
 ## 📣 Overview
 **AY Voice** is a secure, enterprise‑grade bulk‑communication platform built for businesses in Bangladesh. It consolidates **SMS (masking & non‑masking), voice call, and email marketing** into a single, intuitive dashboard, enabling marketers to launch multi‑channel campaigns at scale while maintaining strict budget control through a wallet‑based billing system.
 
@@ -135,8 +141,19 @@ The production stack is containerized using multi-stage Docker configurations, r
 
 ---
 
-## 📧 Requesting Full Source Code
-For technical interviews or a full codebase review, please email **[hello@mehedi-hasan.me](mailto:hello@mehedi-hasan.me)** with your organization details. After verification, private repository access can be shared securely.
+## 📧 Requesting Full Source Code (For Recruiters & Hiring Teams)
+
+Due to client intellectual property rights and privacy contracts from my previous engagement, production secrets and commercial code are kept confidential.
+
+However, if you are assessing my candidacy for a software engineering role and need to inspect:
+- Full backend implementation (Hono, Bun, BullMQ queues, provider adapters)
+- Frontend codebase (Next.js 16 App Router, React 19, custom components & state management)
+- Prisma schemas, database migrations, and unit/integration tests
+
+Please reach out via email:
+📫 **[hello@mehedi-hasan.me](mailto:hello@mehedi-hasan.me)**
+
+*Please mention your company name and role/position in the email. I will gladly provide private repository access or schedule an interactive code walkthrough.*
 
 ---
 
