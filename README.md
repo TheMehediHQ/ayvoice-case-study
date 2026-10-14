@@ -87,53 +87,22 @@ Use the above credentials to explore the UI, run test campaigns, and view analyt
 
 ---
 
-## 📸 Screenshots & Case Study Highlights
-> *The following screenshots are placeholders. Replace `docs/screenshot.png` with actual images when preparing the final presentation.*
+## 📸 Project Showcase & Interface Preview
 
-![Dashboard Overview](docs/screenshot.png)
+![AY Voice Dashboard Preview](./AyVoice.png)
 
-**Case Study Summary** – A leading e‑commerce client increased outreach by **35 %** and reduced per‑message cost by **12 %** after adopting AY Voice’s masking SMS feature. Detailed ROI analysis is available in `docs/Case_Study.pdf`.
-
----
-
-## 🚀 Getting Started (sanitized)
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-org/ayvoice.git
-   cd ayvoice
-   bun install
-   ```
-2. **Configure the environment** – copy the example and fill in demo values.
-   ```bash
-   cp api/.env.example api/.env
-   # Edit `api/.env` with the demo DB credentials supplied by HR.
-   ```
-3. **Launch supporting services**
-   ```bash
-   docker compose up -d postgres redis
-   ```
-4. **Run migrations & seed the demo DB**
-   ```bash
-   cd api && bunx prisma migrate deploy && bunx prisma db seed
-   ```
-5. **Start the application**
-   ```bash
-   # API (port 5050)
-   cd api && bun run dev &
-   # Web (port 3000)
-   cd web && bun run dev
-   ```
-6. Open <http://localhost:3000> and log in with the demo account above.
+> **Case Study Highlight:** A high-volume enterprise customer scaled outreach by **35%** with automated DLR reconciliation and masking SMS routing, cutting cost per engagement while maintaining a 99.4% queue processing success rate.
 
 ---
 
-## 🔐 Security Overview
-- **Jwt & Refresh‑Token Rotation** – Detects token theft via family‑based revocation.
+## 🔐 Security & Architecture Highlights
+- **JWT & Refresh‑Token Rotation** – Detects token theft via family‑based revocation.
 - **bcrypt (cost 12)** – Secure password storage.
 - **Turnstile CAPTCHA** – Mitigates automated abuse on authentication endpoints.
 - **Rate‑Limiting** – Nginx + application‑level limits + fail2ban.
 - **Webhook Verification** – HMAC‑SHA256 signatures for Brevo and delivery receipts.
 - **Idempotent Processing** – Event hashing prevents duplicate handling.
+- **Atomic Quotas** – Row-level lock quota reservation to prevent multi-worker over-dispatching.
 
 ---
 
