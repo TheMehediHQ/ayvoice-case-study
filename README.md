@@ -78,12 +78,36 @@ ayvoice/
 
 ---
 
-## 👤 Demo Account (HR testing)
-| Email | Password |
-|---|---|
-| `hr-demo@ayvoice.test` | `AyVoiceDemo123!` |
+## 👥 User Roles & Access Hierarchy
 
-Use the above credentials to explore the UI, run test campaigns, and view analytics. All operations run against a **demo database**; no real funds are affected.
+The platform enforces a granular **Role-Based Access Control (RBAC)** architecture with 3 distinct tiers:
+
+1. **System Admin (`SYSTEM_ADMIN`)**:
+   - Initialized securely via database seeding (`prisma db seed`).
+   - Highest privilege level: can provision, invite, and manage **Admins**.
+   - Full control over global system configuration, pricing tiers, billing reconciliations, and server metrics.
+
+2. **Admin (`ADMIN`)**:
+   - Created and managed by System Admin.
+   - Campaign review & moderation: approves/rejects SMS sender IDs, voice recordings, and Brevo email marketing drafts.
+   - Customer management: view customer accounts, adjust wallet balances, review audit logs, and handle support escalations.
+
+3. **User / Customer (`USER`)**:
+   - Standard business account.
+   - Self-service dashboard: recharge wallet via ZiniPay, create SMS/Voice/Email campaigns, import contact CSVs, and view real-time delivery analytics (DLR).
+
+---
+
+## 👤 Demo Account (HR / Review Testing)
+
+HR and technical evaluators can use the following credentials to explore the platform:
+
+| Field | Credentials |
+|---|---|
+| **Email** | `demo@mehedi-hasan.me` |
+| **Password** | `0123456789#` |
+
+> *Note: Test operations run safely in a sandbox/demo environment with pre-allocated credits. Real communications will not be dispatched.*
 
 ---
 
@@ -106,23 +130,13 @@ Use the above credentials to explore the UI, run test campaigns, and view analyt
 
 ---
 
-## 📦 Deployment (Docker)
-```bash
-# Build and start all services
-docker compose up -d
-# Services exposed:
-#   - PostgreSQL :5432
-#   - Redis      :6379
-#   - API        :5050
-#   - Web UI     :3000
-```
-
-Production containers are built using multi‑stage Dockerfiles (`Dockerfile.api` and `Dockerfile.web`) and managed by **PM2** for zero‑downtime restarts.
+## 📦 Architecture & Deployment Model
+The production stack is containerized using multi-stage Docker configurations, reverse-proxied behind Nginx with PM2 process supervision, zero-downtime rolling restarts, and automated health checks.
 
 ---
 
 ## 📧 Requesting Full Source Code
-For a full security audit, please email **security@ayvoice.test** with a brief justification. After verification, the complete repository will be shared through a secure channel.
+For technical interviews or a full codebase review, please email **[hello@mehedi-hasan.me](mailto:hello@mehedi-hasan.me)** with your organization details. After verification, private repository access can be shared securely.
 
 ---
 
