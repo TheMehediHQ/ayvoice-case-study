@@ -10,21 +10,21 @@
 ```mermaid
 flowchart TD
     subgraph Client
-        UI[Web UI (Next.js 16)]
+        UI["Web UI (Next.js 16)"]
     end
     subgraph API
-        Hono[Hono (Bun)] -->|HTTP| Auth[Auth Layer]
-        Auth -->|JWT| DB[(PostgreSQL 16)]
-        Auth -->|Cache| Redis[(Redis 7)]
-        Hono -->|Queue| BullMQ[BullMQ Workers]
-        BullMQ -->|SMS| Awaj[AwajDigital]
+        Hono["Hono (Bun)"] -->|HTTP| Auth["Auth Layer"]
+        Auth -->|JWT| DB[("PostgreSQL 16")]
+        Auth -->|Cache| Redis[("Redis 7")]
+        Hono -->|Queue| BullMQ["BullMQ Workers"]
+        BullMQ -->|SMS| Awaj["AwajDigital"]
         BullMQ -->|Voice| Awaj
-        BullMQ -->|Email| Brevo[Brevo (Sendinblue)]
+        BullMQ -->|Email| Brevo["Brevo (Sendinblue)"]
     end
     UI -->|REST| Hono
     UI -->|WebSocket| Redis
     classDef external fill:#f9f,stroke:#333,stroke-width:2px;
-    class Awaj,Breve external;
+    class Awaj,Brevo external;
 ```
 
 *The diagram above is a high‑level view of the data flow between the front‑end, API, queues, and external providers.*
